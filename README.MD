@@ -1,11 +1,11 @@
-# 10x Banking APP
+# 10x Banking App
 
 This is an application developed in Java language and runs on the Spring framework.
 
 This application exposes API's via port 8080.
 
 
-# You can test this by viewing http://localhost:8080/ in a browser
+### You can test this by viewing http://localhost:8080/ in a browser
 
 #### Method 1
 **Url:**
