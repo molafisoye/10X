@@ -89,4 +89,14 @@ This application exposes API's via port 8080.
 
 **description:**
 
-    Deletes the data in the specified table.  
+    Deletes the data in the specified table.
+
+#### What would I do differently?
+    
+    Exception handling can definitely be better
+    More tests 
+    Better tests
+    Refactor especially the DatabaseOperations class
+    Package the classes much better
+    Use a different DB library - this stuff could be done in much less code using a HashMap
+    

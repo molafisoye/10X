@@ -16,21 +16,11 @@ import java.math.BigDecimal;
 
 
 public class DatabaseOperations {
-
-    /* TODO
-    refactor
-    test
-    readme
-    exception handling
-     */
-
     private final Logger logger = LoggerFactory.getLogger(DatabaseOperations.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
-    Connection connection;
-
-    private final String ROWCOUNT = "rowcount";
-    private final String TRANSFER = "transfer";
     private final DateTimeFormatter dbTimeStampFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    Connection connection;
 
     public DatabaseOperations(String dbUrl)  {
         logger.info("Initializing the 10X bank DB");
@@ -178,6 +168,7 @@ public class DatabaseOperations {
         PreparedStatement transactionHistoryStatement = connection.prepareStatement(transactionsHistoryUpdateQuery);
         transactionHistoryStatement.setLong(1, transactionId);
         transactionHistoryStatement.setDouble(2, amount);
+        String TRANSFER = "transfer";
         transactionHistoryStatement.setString(3, TRANSFER);
         transactionHistoryStatement.setLong(4, sourceAccountId);
         transactionHistoryStatement.setLong(5, destinationAccountId);
@@ -226,6 +217,7 @@ public class DatabaseOperations {
     public long getRowCount(String query) throws SQLException {
         ResultSet rs = executeStatement(query);
         rs.next();
+        String ROWCOUNT = "rowcount";
         long rowCount = rs.getLong(ROWCOUNT);
         rs.close();
         return rowCount;
